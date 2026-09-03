@@ -134,7 +134,7 @@ void donut(void) {
 */
 void donut_simple(void) {
     canvas_init();
-    put32(TIMER_C1, 100 * 1000);	// in us
+   put32(TIMER_C1, get32(TIMER_CLO) + 100 * 1000);	// in us
 }
 
 // // copied from timer.c. dirty. just to verify that this works
@@ -155,7 +155,7 @@ void sys_timer_irq_simple(void)
     cur = current_counter(); 
     // reset the timer to fire in the future
 // 	put32(TIMER_C1, cur + 100 * 1000 /*in us*/);	//!STUDENT_DONOT_SEE 
-	/* STUDENT_TODO: your code here */
+	put32(TIMER_C1, cur + 100 * 1000);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
