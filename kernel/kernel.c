@@ -27,7 +27,7 @@ void kernel_main() {
 	sys_timer_init();                   // kernel timer: delay, timekeeping...
 	enable_interrupt_controller(0);     // coreid
 	// quest: sys_timer irq
-// 	enable_irq();		// !STUDENT_DONOT_SEE
+	enable_irq();		// !STUDENT_DONOT_SEE
 	/* STUDENT_TODO: your code here */
 
 	generic_timer_init();               // periodic ticks alive
