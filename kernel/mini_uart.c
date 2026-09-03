@@ -110,10 +110,12 @@ void uart_irq(void) {
 //             c = uart_try_recv();   //!STUDENT_DONOT_SEE
 //             if (c == -1)  //!STUDENT_DONOT_SEE
 //                 break;      //!STUDENT_DONOT_SEE
-                /* STUDENT_TODO: your code here */
+               c = uart_try_recv();
+if (c == -1)
+	break;
 			V("char %d", c); 
-// 			test_ktimer2(c);    //!STUDENT_DONOT_SEE
-			/* STUDENT_TODO: your code here */
+		//test_ktimer2(c);    //!STUDENT_DONOT_SEE
+			test_ktimer2(c);    //!STUDENT_DONOT_SEE
         }
     }
 }
@@ -151,7 +153,8 @@ void uart_init(void) {
 	{ // enable rx irq
 		unsigned int ier = get32(AUX_MU_IER_REG); 
         // flip the bits of ier that enable rx irq, and write back ier to the reg
-//   		put32(AUX_MU_IER_REG, ier | AUX_MU_IER_RXIRQ_ENABLE); //!STUDENT_DONOT_SEE
+		//put32(AUX_MU_IER_REG, ier | AUX_MU_IER_RXIRQ_ENABLE); //!STUDENT_DONOT_SEE
+        put32(AUX_MU_IER_REG, ier | AUX_MU_IER_RXIRQ_ENABLE);
   		/* STUDENT_TODO: your code here */
 	} // leave tx irq disabled
 
